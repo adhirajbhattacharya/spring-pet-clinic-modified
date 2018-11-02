@@ -14,12 +14,12 @@
 	<artifactId>spring-pet-clinic-modified</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
-	<name>spring-pet-clinic-modified</name>
-	<description>spring-pet-clinic-modified</description>
+	<name>pet-clinic-modified-app</name>
+	<description>pet-clinic-modified-app</description>
 
 	<modules>
-		<module>pet-clinic-data</module>
-		<module>pet-clinic-web</module>
+		<module>spring-pet-clinic-modified-data</module>
+		<module>spring-pet-clinic-modified-web</module>
 	</modules>
 
 	<properties>

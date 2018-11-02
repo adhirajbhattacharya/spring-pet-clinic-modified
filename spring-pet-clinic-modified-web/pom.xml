@@ -9,9 +9,9 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>pet-clinic-web</artifactId>
-	<name>pet-clinic-web</name>
-	<description>pet-clinic-web</description>
+	<artifactId>spring-pet-clinic-modified-web</artifactId>
+	<name>pet-clinic-modified-web</name>
+	<description>pet-clinic-modified-web</description>
 
 	<dependencies>
 		<dependency>
