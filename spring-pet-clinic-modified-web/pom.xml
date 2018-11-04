@@ -38,7 +38,7 @@
 		</dependency>
 		<dependency>
 			<groupId>com.adhiraj.tutorials</groupId>
-			<artifactId>pet-clinic-data</artifactId>
+			<artifactId>spring-pet-clinic-modified-data</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>

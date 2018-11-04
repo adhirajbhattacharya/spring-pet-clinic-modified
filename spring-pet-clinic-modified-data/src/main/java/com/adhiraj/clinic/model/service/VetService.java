@@ -1,16 +1,9 @@
 package com.adhiraj.clinic.model.service;
 
-import java.util.Set;
 import com.adhiraj.clinic.model.Vet;
 
-public interface VetService {
-
-  Vet findById(Long id);
+public interface VetService extends CrudService<Vet, Long> {
 
   Vet findByLastName(String lastName);
-
-  void save(Vet owner);
-
-  Set<Vet> findAll();
 
 }
