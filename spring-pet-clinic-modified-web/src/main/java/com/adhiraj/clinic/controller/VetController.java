@@ -1,17 +1,16 @@
 package com.adhiraj.clinic.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("")
-public class IndexController {
+@RequestMapping("/vets")
+public class VetController {
 
-  // by default "", "/" are mapped to page named index.html
-  
   @RequestMapping({"", "/index", "/index.html"})
-  public String index() {
-    return "index";
+  public String listVets(Model model) {
+    return "vets/vet-index";
   }
 
 }
