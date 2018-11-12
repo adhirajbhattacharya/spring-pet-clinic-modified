@@ -1,9 +1,11 @@
 package com.adhiraj.clinic.model.service.map;
 
 import java.util.Set;
+import org.springframework.stereotype.Service;
 import com.adhiraj.clinic.model.Owner;
 import com.adhiraj.clinic.model.service.OwnerService;
 
+@Service
 public class OwnerServiceMap extends AbstractServiceMap<Owner, Long> implements OwnerService {
 
   @Override
