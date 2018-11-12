@@ -1,13 +1,17 @@
 package com.adhiraj.clinic.model.service.map;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.NoSuchElementException;
+import java.util.Objects;
 import java.util.Set;
+import com.adhiraj.clinic.model.BaseEntity;
 
-public abstract class AbstractServiceMap<T, S> {
+public abstract class AbstractServiceMap<T extends BaseEntity, S extends Long> {
 
-  protected Map<S, T> map = new HashMap<>();
+  protected Map<Long, T> map = new HashMap<>();
 
   T findById(S id) {
     return map.get(id);
@@ -17,8 +21,16 @@ public abstract class AbstractServiceMap<T, S> {
     return new HashSet<>(map.values());
   }
 
-  T save(S id, T object) {
-    map.put(id, object);
+  T save(T object) {
+    if (Objects.nonNull(object)) {
+      if (Objects.isNull(object.getId())) {
+        object.setId(getNextId());
+      }
+    } else {
+      throw new NullPointerException("Object cannot be null");
+    }
+    map.put(object.getId(), object);
+
     return object;
   }
 
@@ -28,6 +40,14 @@ public abstract class AbstractServiceMap<T, S> {
 
   void delete(T object) {
     map.entrySet().removeIf(entry -> entry.getValue().equals(object));
+  }
+
+  Long getNextId() {
+    try {
+      return Collections.max(map.keySet()) + 1L;
+    } catch (NoSuchElementException e) {
+      return 1L;
+    }
   }
 
 }
