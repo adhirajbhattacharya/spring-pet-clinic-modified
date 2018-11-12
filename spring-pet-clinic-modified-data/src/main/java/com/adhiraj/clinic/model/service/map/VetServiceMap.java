@@ -2,9 +2,9 @@ package com.adhiraj.clinic.model.service.map;
 
 import java.util.Set;
 import com.adhiraj.clinic.model.Vet;
-import com.adhiraj.clinic.model.service.CrudService;
+import com.adhiraj.clinic.model.service.VetService;
 
-public class VetServiceMap extends AbstractServiceMap<Vet, Long> implements CrudService<Vet, Long> {
+public class VetServiceMap extends AbstractServiceMap<Vet, Long> implements VetService {
 
   @Override
   public Vet findById(Long id) {
@@ -29,6 +29,12 @@ public class VetServiceMap extends AbstractServiceMap<Vet, Long> implements Crud
   @Override
   public void delete(Vet object) {
     super.delete(object);
+  }
+
+  @Override
+  public Vet findByLastName(String lastName) {
+    // TODO Auto-generated method stub
+    return null;
   }
 
 }

@@ -2,10 +2,10 @@ package com.adhiraj.clinic.model.service.map;
 
 import java.util.Set;
 import com.adhiraj.clinic.model.Owner;
-import com.adhiraj.clinic.model.service.CrudService;
+import com.adhiraj.clinic.model.service.OwnerService;
 
 public class OwnerServiceMap extends AbstractServiceMap<Owner, Long>
-    implements CrudService<Owner, Long> {
+    implements OwnerService {
 
   @Override
   public Owner findById(Long id) {
@@ -30,6 +30,12 @@ public class OwnerServiceMap extends AbstractServiceMap<Owner, Long>
   @Override
   public void delete(Owner object) {
     super.delete(object);
+  }
+
+  @Override
+  public Owner findByLastName(String lastName) {
+    // TODO Auto-generated method stub
+    return null;
   }
 
 }

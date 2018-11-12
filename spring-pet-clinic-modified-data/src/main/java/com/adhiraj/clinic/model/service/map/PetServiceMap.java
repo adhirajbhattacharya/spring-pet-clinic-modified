@@ -2,9 +2,9 @@ package com.adhiraj.clinic.model.service.map;
 
 import java.util.Set;
 import com.adhiraj.clinic.model.Pet;
-import com.adhiraj.clinic.model.service.CrudService;
+import com.adhiraj.clinic.model.service.PetService;
 
-public class PetServiceMap extends AbstractServiceMap<Pet, Long> implements CrudService<Pet, Long> {
+public class PetServiceMap extends AbstractServiceMap<Pet, Long> implements PetService {
 
   @Override
   public Pet findById(Long id) {
