@@ -4,14 +4,13 @@ import java.util.Set;
 import com.adhiraj.clinic.model.Owner;
 import com.adhiraj.clinic.model.service.OwnerService;
 
-public class OwnerServiceMap extends AbstractServiceMap<Owner, Long>
-    implements OwnerService {
+public class OwnerServiceMap extends AbstractServiceMap<Owner, Long> implements OwnerService {
 
   @Override
   public Owner findById(Long id) {
     return super.findById(id);
   }
-  
+
   @Override
   public Set<Owner> findAll() {
     return super.findAll();
