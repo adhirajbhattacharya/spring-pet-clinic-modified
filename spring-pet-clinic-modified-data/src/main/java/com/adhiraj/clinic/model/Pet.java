@@ -4,6 +4,8 @@ import java.time.LocalDate;
 
 public class Pet extends BaseEntity {
 
+  private static final long serialVersionUID = 6009056379335599615L;
+
   private PetType petType;
   private Owner owner;
   private LocalDate birthDate;

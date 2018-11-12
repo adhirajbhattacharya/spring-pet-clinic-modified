@@ -2,6 +2,8 @@ package com.adhiraj.clinic.model;
 
 public class Person extends BaseEntity {
 
+  private static final long serialVersionUID = 8085889039073483293L;
+
   private String firstName;
   private String lastName;
 

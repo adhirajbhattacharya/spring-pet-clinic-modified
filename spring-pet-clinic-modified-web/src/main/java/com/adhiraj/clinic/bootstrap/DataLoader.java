@@ -1,13 +1,12 @@
 package com.adhiraj.clinic.bootstrap;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import com.adhiraj.clinic.model.Owner;
 import com.adhiraj.clinic.model.Vet;
 import com.adhiraj.clinic.model.service.OwnerService;
 import com.adhiraj.clinic.model.service.VetService;
-import com.adhiraj.clinic.model.service.map.OwnerServiceMap;
-import com.adhiraj.clinic.model.service.map.VetServiceMap;
 
 @Component
 public class DataLoader implements CommandLineRunner {
@@ -18,6 +17,7 @@ public class DataLoader implements CommandLineRunner {
   private final OwnerService ownerService;
   private final VetService vetService;
 
+  @Autowired
   public DataLoader(OwnerService ownerService, VetService vetService) {
     super();
     this.ownerService = ownerService;
