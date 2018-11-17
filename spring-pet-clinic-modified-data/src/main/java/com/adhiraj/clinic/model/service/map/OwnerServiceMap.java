@@ -2,6 +2,7 @@ package com.adhiraj.clinic.model.service.map;
 
 import java.util.Objects;
 import java.util.Set;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.adhiraj.clinic.model.Owner;
 import com.adhiraj.clinic.model.service.OwnerService;
@@ -14,6 +15,7 @@ public class OwnerServiceMap extends AbstractServiceMap<Owner, Long> implements 
   private final PetService petService;
   private final PetTypeService petTypeService;
 
+  @Autowired
   public OwnerServiceMap(PetService petService, PetTypeService petTypeService) {
     super();
     this.petService = petService;
