@@ -1,9 +1,11 @@
 package com.adhiraj.clinic.bootstrap;
 
+import java.time.LocalDate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import com.adhiraj.clinic.model.Owner;
+import com.adhiraj.clinic.model.Pet;
 import com.adhiraj.clinic.model.PetType;
 import com.adhiraj.clinic.model.Vet;
 import com.adhiraj.clinic.model.service.OwnerService;
@@ -40,16 +42,37 @@ public class DataLoader implements CommandLineRunner {
     cat.setName("Cat");
     PetType savedCat = petTypeService.save(cat);
 
-    Owner owner1 = new Owner();
-    owner1.setFirstName("John");
-    owner1.setLastName(OWNER_LAST_NAME);
+    Owner john = new Owner();
+    john.setFirstName("John");
+    john.setLastName(OWNER_LAST_NAME);
+    john.setAddress("221B Baker Street");
+    john.setCity("London");
+    john.setTelephone("1234567890");
 
-    Owner owner2 = new Owner();
-    owner2.setFirstName("Jane");
-    owner2.setLastName(OWNER_LAST_NAME);
+    Pet johnsDog = new Pet();
+    johnsDog.setName("Rocco");
+    johnsDog.setOwner(john);
+    johnsDog.setBirthDate(LocalDate.now());
+    johnsDog.setPetType(savedDog);
 
-    ownerService.save(owner1);
-    ownerService.save(owner2);
+    john.getPets().add(johnsDog);
+    ownerService.save(john);
+
+    Owner jane = new Owner();
+    jane.setFirstName("Jane");
+    jane.setLastName(OWNER_LAST_NAME);
+    jane.setAddress("221B Baker Street");
+    jane.setCity("London");
+    jane.setTelephone("1234567890");
+
+    Pet janesCat = new Pet();
+    janesCat.setName("Princess");
+    janesCat.setOwner(jane);
+    janesCat.setBirthDate(LocalDate.now());
+    janesCat.setPetType(savedCat);
+
+    jane.getPets().add(janesCat);
+    ownerService.save(jane);
 
     System.out.println("Loaded Owners ...");
 
