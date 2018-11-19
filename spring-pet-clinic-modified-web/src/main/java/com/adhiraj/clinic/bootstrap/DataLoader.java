@@ -9,10 +9,12 @@ import com.adhiraj.clinic.model.Pet;
 import com.adhiraj.clinic.model.PetType;
 import com.adhiraj.clinic.model.Speciality;
 import com.adhiraj.clinic.model.Vet;
+import com.adhiraj.clinic.model.Visit;
 import com.adhiraj.clinic.model.service.OwnerService;
 import com.adhiraj.clinic.model.service.PetTypeService;
 import com.adhiraj.clinic.model.service.SpecialityService;
 import com.adhiraj.clinic.model.service.VetService;
+import com.adhiraj.clinic.model.service.VisitService;
 
 @Component
 public class DataLoader implements CommandLineRunner {
@@ -24,15 +26,17 @@ public class DataLoader implements CommandLineRunner {
   private final VetService vetService;
   private final PetTypeService petTypeService;
   private final SpecialityService specialityService;
+  private final VisitService visitService;
 
   @Autowired
   public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService,
-      SpecialityService specialityService) {
+      SpecialityService specialityService, VisitService visitService) {
     super();
     this.ownerService = ownerService;
     this.vetService = vetService;
     this.petTypeService = petTypeService;
     this.specialityService = specialityService;
+    this.visitService = visitService;
   }
 
   @Override
@@ -85,6 +89,20 @@ public class DataLoader implements CommandLineRunner {
 
     System.out.println("Loaded Owners ...");
 
+    Visit catVisit = new Visit();
+    catVisit.setDescription("sneezy kitty");
+    catVisit.setDate(LocalDate.now());
+    catVisit.setPet(janesCat);
+    visitService.save(catVisit);
+
+    Visit dogVisit = new Visit();
+    dogVisit.setDescription("runny doggy");
+    dogVisit.setDate(LocalDate.now());
+    dogVisit.setPet(johnsDog);
+    visitService.save(dogVisit);
+
+    System.out.println("Loaded Visits ...");
+
     Speciality radiologist = new Speciality();
     radiologist.setDescription("radiology");
     Speciality savedRadiology = specialityService.save(radiologist);
@@ -97,7 +115,7 @@ public class DataLoader implements CommandLineRunner {
     eric.setFirstName("Eric");
     eric.setLastName(VET_LAST_NAME);
     eric.getSpecialities().add(savedRadiology);
-    
+
     vetService.save(eric);
 
     Vet erin = new Vet();

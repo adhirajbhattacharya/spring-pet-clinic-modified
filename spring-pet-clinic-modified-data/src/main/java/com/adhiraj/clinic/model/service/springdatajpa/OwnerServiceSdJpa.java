@@ -7,8 +7,6 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import com.adhiraj.clinic.model.Owner;
 import com.adhiraj.clinic.model.repository.OwnerRepository;
-import com.adhiraj.clinic.model.repository.PetRepository;
-import com.adhiraj.clinic.model.repository.PetTypeRepository;
 import com.adhiraj.clinic.model.service.OwnerService;
 
 @Service
@@ -17,18 +15,10 @@ public class OwnerServiceSdJpa implements OwnerService {
 
   private final OwnerRepository ownerRepository;
 
-  @SuppressWarnings("unused")
-  private final PetRepository petRepository;
-  @SuppressWarnings("unused")
-  private final PetTypeRepository petTypeRepository;
-
   @Autowired
-  public OwnerServiceSdJpa(OwnerRepository ownerRepository, PetRepository petRepository,
-      PetTypeRepository petTypeRepository) {
+  public OwnerServiceSdJpa(OwnerRepository ownerRepository) {
     super();
     this.ownerRepository = ownerRepository;
-    this.petRepository = petRepository;
-    this.petTypeRepository = petTypeRepository;
   }
 
   @Override
