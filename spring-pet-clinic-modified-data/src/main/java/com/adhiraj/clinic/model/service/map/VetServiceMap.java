@@ -3,12 +3,14 @@ package com.adhiraj.clinic.model.service.map;
 import java.util.Objects;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import com.adhiraj.clinic.model.Vet;
 import com.adhiraj.clinic.model.service.SpecialityService;
 import com.adhiraj.clinic.model.service.VetService;
 
 @Service
+@Profile({"default", "map"})
 public class VetServiceMap extends AbstractServiceMap<Vet, Long> implements VetService {
 
   private final SpecialityService specialityService;
