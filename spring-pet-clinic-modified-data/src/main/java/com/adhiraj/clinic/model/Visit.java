@@ -1,13 +1,26 @@
 package com.adhiraj.clinic.model;
 
 import java.time.LocalDate;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "visit")
 public class Visit extends BaseEntity {
 
   private static final long serialVersionUID = 5483242588757458543L;
 
+  @Column(name = "date")
   private LocalDate date;
-  private String desc;
+
+  @Column(name = "description")
+  private String description;
+
+  @ManyToOne
+  @JoinColumn(name = "pet_id")
   private Pet pet;
 
   public LocalDate getDate() {
@@ -18,12 +31,12 @@ public class Visit extends BaseEntity {
     this.date = date;
   }
 
-  public String getDesc() {
-    return desc;
+  public String getDescription() {
+    return description;
   }
 
-  public void setDesc(String desc) {
-    this.desc = desc;
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   public Pet getPet() {
